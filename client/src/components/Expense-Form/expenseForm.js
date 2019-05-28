@@ -2,18 +2,18 @@ import React from "react";
 // AXIOS
 import axios from "axios";
 //import API from "../../routes/api/api";
-const expenseCategories = [
-  { label: "Books", value: "books" },
-  { label: "Clothes", value: "clothes" },
-  { label: "Electricity", value: "electricity" },
-  { label: "Food", value: "food" },
-  { label: "Fruit", value: "fruit" },
-  { label: "Grocery", value: "grocery" },
-  { label: "Internet", value: "internet" },
-  { label: "Phone", value: "internet" },
-  { label: "Traveling", value: "traveling" },
-  { label: "Uncategorized", value: "uncategorized" }
-];
+// const expenseCategories = [
+//   { label: "Books", value: "books" },
+//   { label: "Clothes", value: "clothes" },
+//   { label: "Electricity", value: "electricity" },
+//   { label: "Food", value: "food" },
+//   { label: "Fruit", value: "fruit" },
+//   { label: "Grocery", value: "grocery" },
+//   { label: "Internet", value: "internet" },
+//   { label: "Phone", value: "internet" },
+//   { label: "Traveling", value: "traveling" },
+//   { label: "Uncategorized", value: "uncategorized" }
+// ];
 class ExpenseForm extends React.Component {
   constructor(props) {
     super(props);
@@ -87,7 +87,7 @@ class ExpenseForm extends React.Component {
       <div>
         <form onSubmit={this.onSubmit}>
           <select>
-            <option value={expenseCategories} />
+            <option value="Books">Books</option>
           </select>
         </form>
       </div>
