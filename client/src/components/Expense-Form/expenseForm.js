@@ -88,6 +88,15 @@ class ExpenseForm extends React.Component {
         <form onSubmit={this.onSubmit}>
           <select>
             <option value="Books">Books</option>
+            <option value="Clothes">Clothes</option>
+            <option value="Electricity">Electricity</option>
+            <option value="Food">Food</option>
+            <option value="Fruit">Fruit</option>
+            <option value="Grocery">Grocery</option>
+            <option value="Internet">Internet</option>
+            <option value="Food">Food</option>
+            <option value="Traveling">Traveling</option>
+            <option value="Uncategorized">Uncategorized</option>
           </select>
         </form>
       </div>
