@@ -3,18 +3,6 @@ import React from "react";
 // AXIOS
 import axios from "axios";
 //import API from "../../routes/api/api";
-// const expenseCategories = [
-//   { label: "Books", value: "books" },
-//   { label: "Clothes", value: "clothes" },
-//   { label: "Electricity", value: "electricity" },
-//   { label: "Food", value: "food" },
-//   { label: "Fruit", value: "fruit" },
-//   { label: "Grocery", value: "grocery" },
-//   { label: "Internet", value: "internet" },
-//   { label: "Phone", value: "internet" },
-//   { label: "Traveling", value: "traveling" },
-//   { label: "Uncategorized", value: "uncategorized" }
-// ];
 class ExpenseForm extends React.Component {
   constructor(props) {
     super(props);
@@ -34,6 +22,7 @@ class ExpenseForm extends React.Component {
   }
 
   onHandlePayee(e) {
+    console.log("this.state.payee", this.state.payee);
     //e.preventDefault();
     this.setState({
       payee: e.target.value
@@ -87,9 +76,25 @@ class ExpenseForm extends React.Component {
     return (
       <div>
         <form onSubmit={this.onSubmit}>
-         <input type="text" placeholder="payee"></input>
-         <input type="text" placeholder="amount"></input>
-          <select>
+          <input
+            type="text"
+            placeholder="payee"
+            id="payee"
+            value={this.state.payee}
+            onChange={this.onHandlePayee}
+          />
+          <input
+            type="text"
+            placeholder="amount"
+            id="amount"
+            value={this.state.amount}
+            onChange={this.onHandleAmount}
+          />
+          <select
+            id="category"
+            value={this.state.category}
+            onChange={this.onHandleCategory}
+          >
             <option value="Books">Books</option>
             <option value="Clothes">Clothes</option>
             <option value="Electricity">Electricity</option>
@@ -101,7 +106,15 @@ class ExpenseForm extends React.Component {
             <option value="Traveling">Traveling</option>
             <option value="Uncategorized">Uncategorized</option>
           </select>
-          <textarea name="comment" form="usrform">Enter text here...</textarea>
+          <textarea
+            name="comment"
+            form="usrform"
+            id="comment"
+            value={this.state.comment} onChange={this.onHandleComment}
+          />
+          <button type="submit" color="primary">
+            Submit
+          </button>
         </form>
       </div>
     );
