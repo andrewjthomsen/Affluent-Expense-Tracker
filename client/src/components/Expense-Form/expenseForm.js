@@ -1,4 +1,5 @@
 import React from "react";
+// import { TextInput } from "react-materialize";
 // AXIOS
 import axios from "axios";
 //import API from "../../routes/api/api";
@@ -86,6 +87,8 @@ class ExpenseForm extends React.Component {
     return (
       <div>
         <form onSubmit={this.onSubmit}>
+         <input type="text" placeholder="payee"></input>
+         <input type="text" placeholder="amount"></input>
           <select>
             <option value="Books">Books</option>
             <option value="Clothes">Clothes</option>
@@ -98,6 +101,7 @@ class ExpenseForm extends React.Component {
             <option value="Traveling">Traveling</option>
             <option value="Uncategorized">Uncategorized</option>
           </select>
+          <textarea name="comment" form="usrform">Enter text here...</textarea>
         </form>
       </div>
     );
