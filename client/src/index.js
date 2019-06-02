@@ -7,15 +7,20 @@ import ExpensePage from "./pages/expensePage/expensePage";
 import Home from "./pages/Home/index";
 import { createBrowserHistory } from "history";
 import * as serviceWorker from "./serviceWorker";
+import Navbar from "./components/Navbar/navbar";
 const hist = createBrowserHistory();
 ReactDOM.render(
+  <div>
   <Router history={hist}>
+  <Navbar/>
+  {/* put main tag inside navbar, which will be responsible for displaying all components */}
     <Switch>
       <Route exact path="/" component={Home} />
       <Route path="/expenses" component={ExpensePage} />
       <Route exact path="/balance" component={BalancePage} />
     </Switch>
-  </Router>,
+  </Router>
+  </div>,
   document.getElementById("root")
 );
 

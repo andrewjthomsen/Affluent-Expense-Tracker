@@ -34,7 +34,6 @@
     "express": "^4.16.4",
     "if-env": "^1.0.4",
     "is-empty": "^1.2.0",
-    "materialize-css": "^1.0.0",
     "mongoose": "^5.5.5",
     "react-dom": "^16.8.6",
     "react-materialize": "^3.3.1",

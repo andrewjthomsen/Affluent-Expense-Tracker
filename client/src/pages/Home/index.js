@@ -6,7 +6,7 @@ function Home() {
   return (
     // <!-- main -->
     <div>
-      <Navbar />
+      Hello World
     </div>
   );
 }
