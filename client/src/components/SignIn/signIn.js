@@ -18,7 +18,6 @@ class SignIn extends React.Component {
                 type="text"
                 name="Username"
                 placeholder={"UserName"}
-                required="true"
               />
 
               <input
@@ -26,7 +25,6 @@ class SignIn extends React.Component {
                 type="password"
                 name="password"
                 placeholder={"Password"}
-                required="true"
               />
 
               <div className="wthree-text">
