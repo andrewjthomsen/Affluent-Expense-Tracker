@@ -6,7 +6,7 @@ import User from '../../models/user';
 const BCRYPT_SALT_ROUNDS = 12;
 module.exports = (app) => {
   app.put('/updatePassword', (req, res, next) => {
-    passport.authenticate('jwt', { session: false }, (err, User, info) => {
+    passport.authenticate('jwt', { session: false }, (err, user, info) => {
       if (err) {
         console.error(err);
       }
