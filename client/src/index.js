@@ -5,6 +5,7 @@ import { Router, Route, Switch } from "react-router-dom";
 import BalancePage from "./pages/balancePage/balancePage";
 import ExpensePage from "./pages/expensePage/expensePage";
 import Home from "./pages/Home/index";
+import SignIn from "../../client/src/components/SignIn/signIn";
 import { createBrowserHistory } from "history";
 import * as serviceWorker from "./serviceWorker";
 const hist = createBrowserHistory();
@@ -14,6 +15,7 @@ ReactDOM.render(
       <Route exact path="/" component={Home} />
       <Route path="/expenses" component={ExpensePage} />
       <Route exact path="/balance" component={BalancePage} />
+      <Route exact path="/login" component={SignIn} />
     </Switch>
   </Router>,
   document.getElementById("root")
