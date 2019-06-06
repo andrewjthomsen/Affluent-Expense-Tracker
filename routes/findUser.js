@@ -1,5 +1,5 @@
 import passport from 'passport';
-import User from '../../models/user';
+import User from '../models/user';
 
 module.exports = (app) => {
   app.get('/findUser', (req, res, next) => {

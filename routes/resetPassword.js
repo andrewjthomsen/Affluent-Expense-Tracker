@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable max-len */
 import Sequelize from 'sequelize';
-import User from '../../models/user';
+import User from '../models/user';
 
 
 module.exports = (app) => {

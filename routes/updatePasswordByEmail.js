@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import bcrypt from 'bcrypt';
-import User from '../../models/user'
+import User from '../models/user'
 
 const BCRYPT_SALT_ROUNDS = 12;
 module.exports = app => {

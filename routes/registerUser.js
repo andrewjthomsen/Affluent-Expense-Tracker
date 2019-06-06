@@ -1,7 +1,7 @@
 /* eslint-disable arrow-parens */
 /* eslint-disable no-console */
 import passport from 'passport';
-import User from '../../models/user';
+import User from '../models/user';
 
 module.exports = app => {
   app.post('/registerUser', (req, res, next) => {
