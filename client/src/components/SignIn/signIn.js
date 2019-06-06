@@ -37,7 +37,7 @@ class SignIn extends React.Component {
               <input type="submit" value="SIGNIN" />
             </form>
             <p>
-              Don&#39;t Have An Account? <a href="/login"> Sign Up Now!</a>
+              Don&#39;t Have An Account? <a href="/registerUser"> Sign Up Now!</a>
             </p>
           </div>
         </div>

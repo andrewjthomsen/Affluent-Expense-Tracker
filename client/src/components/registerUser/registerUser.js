@@ -6,8 +6,8 @@ import axios from "axios";
 class RegisterUser extends React.Component {
   constructor(props) {
     super(props);
-    this.onHandlePayee = this.onHandleFirstName.bind(this);
-    this.onHandleAmount = this.onHandleLastName.bind(this);
+    this.onHandleFirstName = this.onHandleFirstName.bind(this);
+    this.onHandleLastName = this.onHandleLastName.bind(this);
     this.onHandleEmail = this.onHandleEmail.bind(this);
     this.onHandleUserName = this.onHandleUserName.bind(this);
     this.onHandlePassWord = this.onHandlePassWord.bind(this);
@@ -23,26 +23,26 @@ class RegisterUser extends React.Component {
     };
   }
 
-  onHandlePayee(e) {
+  onHandleFirstName(e) {
     console.log("this.state.payee", this.state.firstName);
     //e.preventDefault();
     this.setState({
       firstName: e.target.value
     });
   }
-  onHandleAmount(e) {
+  onHandleLastName(e) {
     //e.preventDefault();
     this.setState({
       lastName: e.target.value
     });
   }
-  onHandleCategory(e) {
+  onHandleEmail(e) {
     //e.preventDefault();
     this.setState({
       email: e.target.value
     });
   }
-  onHandleComment(e) {
+  onHandleUserName(e) {
     //e.preventDefault();
     this.setState({
       userName: e.target.value

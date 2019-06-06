@@ -1,9 +1,9 @@
 import * as React from "react";
 import Navbar from "../../components/Navbar/navbar";
-import RegisterUser from "../../components/RegisterUser/registerUser";
+import RegisterUser from "../../components/registerUser/registerUser";
 // import { Router } from 'react-router'
 
-function SignIn() {
+function SignUpPage() {
   return (
     // <!-- main -->
     <div>
@@ -13,4 +13,4 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+export default SignUpPage;
