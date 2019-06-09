@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 import jwt from 'jsonwebtoken';
 import passport from 'passport';
-import jwtSecret from '../../config/jwtConfig';
-import User from '../../models/user';
+import jwtSecret from '../config/jwtConfig';
+import User from '../models/user';
 
 module.exports = (app) => {
   app.post('/loginUser', (req, res, next) => {

@@ -1,28 +1,25 @@
-/* eslint-disable camelcase */
-/* eslint-disable consistent-return */
-/* eslint-disable no-console */
-import bcrypt from 'bcrypt';
-import Sequelize from 'sequelize';
-import jwtSecret from './jwtConfig';
+import bcrypt from "bcrypt";
+import Sequelize from "sequelize";
+import jwtSecret from "./jwtConfig";
 
 const BCRYPT_SALT_ROUNDS = 12;
 // eslint-disable-next-line prefer-destructuring
 const Op = Sequelize.Op;
 
-const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
-const JWTstrategy = require('passport-jwt').Strategy;
-const ExtractJWT = require('passport-jwt').ExtractJwt;
-const User = require('../models/user');
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+const JWTstrategy = require("passport-jwt").Strategy;
+const ExtractJWT = require("passport-jwt").ExtractJwt;
+const User = require("../models/user");
 
 passport.use(
-  'register',
+  "register",
   new LocalStrategy(
     {
-      usernameField: 'username',
-      passwordField: 'password',
+      usernameField: "username",
+      passwordField: "password",
       passReqToCallback: true,
-      session: false,
+      session: false
     },
     (req, username, password, done) => {
       console.log(username);
@@ -33,25 +30,25 @@ passport.use(
           where: {
             [Op.or]: [
               {
-                username,
+                username
               },
-              { email: req.body.email },
-            ],
-          },
-        }).then((user) => {
+              { email: req.body.email }
+            ]
+          }
+        }).then(user => {
           if (user != null) {
-            console.log('username or email already taken');
+            console.log("username or email already taken");
             return done(null, false, {
-              message: 'username or email already taken',
+              message: "username or email already taken"
             });
           }
-          bcrypt.hash(password, BCRYPT_SALT_ROUNDS).then((hashedPassword) => {
+          bcrypt.hash(password, BCRYPT_SALT_ROUNDS).then(hashedPassword => {
             User.create({
               username,
               password: hashedPassword,
-              email: req.body.email,
-            }).then((user) => {
-              console.log('user created');
+              email: req.body.email
+            }).then(user => {
+              console.log("user created");
               return done(null, user);
             });
           });
@@ -59,68 +56,68 @@ passport.use(
       } catch (err) {
         return done(err);
       }
-    },
-  ),
+    }
+  )
 );
 
 passport.use(
-  'login',
+  "login",
   new LocalStrategy(
     {
-      usernameField: 'username',
-      passwordField: 'password',
-      session: false,
+      usernameField: "username",
+      passwordField: "password",
+      session: false
     },
     (username, password, done) => {
       try {
         User.findOne({
           where: {
-            username,
-          },
-        }).then((user) => {
-          if (user === null) {
-            return done(null, false, { message: 'bad username' });
+            username
           }
-          bcrypt.compare(password, user.password).then((response) => {
+        }).then(user => {
+          if (user === null) {
+            return done(null, false, { message: "bad username" });
+          }
+          bcrypt.compare(password, user.password).then(response => {
             if (response !== true) {
-              console.log('passwords do not match');
-              return done(null, false, { message: 'passwords do not match' });
+              console.log("passwords do not match");
+              return done(null, false, { message: "passwords do not match" });
             }
-            console.log('user found & authenticated');
+            console.log("user found & authenticated");
             return done(null, user);
           });
         });
       } catch (err) {
         done(err);
       }
-    },
-  ),
+    }
+  )
 );
 
 const opts = {
-  jwtFromRequest: ExtractJWT.fromAuthHeaderWithScheme('JWT'),
-  secretOrKey: jwtSecret.secret,
+  jwtFromRequest: ExtractJWT.fromAuthHeaderWithScheme("JWT"),
+  secretOrKey: jwtSecret.secret
 };
 
 passport.use(
-  'jwt',
+  "jwt",
   new JWTstrategy(opts, (jwt_payload, done) => {
     try {
       User.findOne({
         where: {
-          id: jwt_payload.id,
-        },
-      }).then((user) => {
+          id: jwt_payload.id
+        }
+      }).then(user => {
         if (user) {
-          console.log('user found in db in passport');
+          console.log("user found in db in passport");
           done(null, user);
         } else {
-          console.log('user not found in db');
+          console.log("user not found in db");
           done(null, false);
         }
       });
     } catch (err) {
       done(err);
     }
-  }),
+  })
 );

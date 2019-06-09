@@ -1,5 +1,5 @@
 import passport from 'passport';
-import User from '../../models/user';
+import User from '../models/user';
 
 module.exports = (app) => {
     app.delete('/deleteUser', (req, res, next) => {
