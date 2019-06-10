@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
-import bcrypt from 'bcrypt';
-import User from '../models/user'
+const bcrypt = require('bcrypt');
+const User = require('../models/user');
 
 const BCRYPT_SALT_ROUNDS = 12;
 module.exports = app => {
@@ -13,11 +13,11 @@ module.exports = app => {
           $gt: Date.now(),
         },
       },
-    }).then(User => {
-      if (User == null) {
+    }).then(user => {
+      if (user == null) {
         console.error('password reset link is invalid or has expired');
         res.status(403).send('password reset link is invalid or has expired');
-      } else if (User != null) {
+      } else if (user != null) {
         console.log('user exists in db');
         bcrypt
           .hash(req.body.password, BCRYPT_SALT_ROUNDS)

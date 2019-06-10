@@ -14,7 +14,7 @@ module.exports = app => {
         res.status(403).send(info.message);
       } else {
         // eslint-disable-next-line no-unused-vars
-        req.logIn(User, error => {
+        req.logIn(user, error => {
           console.log(User);
           const data = {
             first_name: req.body.first_name,
@@ -28,7 +28,7 @@ module.exports = app => {
               username: data.username,
             },
           }).then(user => {
-            console.log(User);
+            console.log(user);
             User
               .update({
                 first_name: data.first_name,
