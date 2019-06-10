@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
-import passport from 'passport';
-import bcrypt from 'bcrypt';
-import User from '../models/user';
+const passport = require('passport');
+const bcrypt = require('bcrypt');
+const User = require('../models/user');
 
 const BCRYPT_SALT_ROUNDS = 12;
 module.exports = (app) => {

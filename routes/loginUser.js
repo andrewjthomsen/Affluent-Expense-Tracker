@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
-import jwt from 'jsonwebtoken';
-import passport from 'passport';
-import jwtSecret from '../config/jwtConfig';
-import User from '../models/user';
+const jwt = require('jsonwebtoken');
+const passport = require('passport');
+const jwtSecret = require('../config/jwtConfig');
+const User = require('../models/user');
 
 module.exports = (app) => {
   app.post('/loginUser', (req, res, next) => {
