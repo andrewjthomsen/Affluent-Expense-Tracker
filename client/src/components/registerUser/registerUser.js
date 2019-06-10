@@ -12,7 +12,7 @@ class RegisterUser extends React.Component {
     this.onHandleUserName = this.onHandleUserName.bind(this);
     this.onHandlePassWord = this.onHandlePassWord.bind(this);
     // this.onHandleUser = this.onHandleUser.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+    // this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
       firstName: "",
@@ -24,7 +24,7 @@ class RegisterUser extends React.Component {
   }
 
   onHandleFirstName(e) {
-    console.log("this.state.payee", this.state.firstName);
+    console.log("this.state.firstName", this.state.firstName);
     //e.preventDefault();
     this.setState({
       firstName: e.target.value
@@ -55,37 +55,37 @@ class RegisterUser extends React.Component {
       passWord: e.target.value
     });
   }
-  onSubmit(e) {
-    e.preventDefault();
-    //console.log(`The values are ${this.state.payee}, ${this.state.amount}, and ${this.state.comment}`)
-    const obj = {
-      firstName: this.state.fisrtName,
-      lastName: this.state.lastName,
-      email: this.state.email,
-      userName: this.state.userName,
-      passWord: this.state.passWord
-    };
-    console.log(obj);
-    axios
-      .post("http://localhost:5000/registerUser", obj)
-      .then(res => console.log(res.data));
+  // onSubmit(e) {
+  //   e.preventDefault();
+  //   //console.log(`The values are ${this.state.payee}, ${this.state.amount}, and ${this.state.comment}`)
+  //   const obj = {
+  //     firstName: this.state.fisrtName,
+  //     lastName: this.state.lastName,
+  //     email: this.state.email,
+  //     userName: this.state.userName,
+  //     passWord: this.state.passWord
+  //   };
+  //   console.log(obj);
+  //   axios
+  //     .post("http://localhost:5000/registerUser", obj)
+  //     .then(res => console.log(res.data));
 
-    // API.addExpense(obj)
-    // .then(res => console.log(res.data));
+  //   // API.addExpense(obj)
+  //   // .then(res => console.log(res.data));
 
-    this.setState({
-      firstName: "",
-      lastName: "",
-      email: "",
-      userName: "",
-      passWord: ""
-    });
-  }
+  //   this.setState({
+  //     firstName: "",
+  //     lastName: "",
+  //     email: "",
+  //     userName: "",
+  //     passWord: ""
+  //   });
+  // }
 
   render() {
     return (
       <div>
-        <form onSubmit={this.onSubmit}>
+        <form>
           <input
             type="text"
             placeholder="first_name"
@@ -121,7 +121,7 @@ class RegisterUser extends React.Component {
             value={this.state.passWord}
             onChange={this.onHandlePassWord}
           />
-          <button type="submit" color="primary">
+          <button type="submit" action="/registerUser" method="post" color="primary">
             Submit
           </button>
         </form>
