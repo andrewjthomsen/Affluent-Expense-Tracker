@@ -36,6 +36,8 @@ module.exports = app => {
                 email: data.email,
               })
               .then(() => {
+                console.log('');
+                console.log('user created in db');
                 console.log('user created in db');
                 res.status(200).send({ message: 'user created' });
               });

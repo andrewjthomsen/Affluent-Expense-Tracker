@@ -27,7 +27,7 @@ passport.use(
       try {
         User.findOne({
           where: {
-            [Op.or]: [
+            [$or]: [
               {
                 username
               },

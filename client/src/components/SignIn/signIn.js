@@ -2,9 +2,9 @@ import * as React from "react";
 // import { Router } from 'react-router'
 
 class SignIn extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
   render() {
     return (
       // <!-- main -->
@@ -12,7 +12,7 @@ class SignIn extends React.Component {
         <h1>Sign In Form</h1>
         <div className="main-agileinfo">
           <div className="agileits-top">
-            <form action="/submit" method="post">
+            <form action="/loginUser" method="post">
               <input
                 className="signin"
                 type="text"
