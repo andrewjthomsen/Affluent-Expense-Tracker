@@ -12,7 +12,7 @@ class SignIn extends React.Component {
         <h1>Sign In Form</h1>
         <div className="main-agileinfo">
           <div className="agileits-top">
-            <form action="/loginUser" method="post">
+            <form action="http://localhost:5000/loginUser" method="post">
               <input
                 className="signin"
                 type="text"
