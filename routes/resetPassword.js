@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 /* eslint-disable max-len */
-import Sequelize from 'sequelize';
-import User from '../models/user';
+const User = require('../models/user');
 
 
 module.exports = (app) => {

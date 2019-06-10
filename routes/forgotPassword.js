@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 /* eslint-disable no-console */
-import crypto from 'crypto';
-import User from '../models/user';
+const crypto = require('crypto');
+const User = require('../models/user');
 
 require('dotenv').config();
 
