@@ -1,8 +1,6 @@
 import React from "react";
 // import { TextInput } from "react-materialize";
-// AXIOS
-import axios from "axios";
-//import API from "../../routes/api/api";
+
 class RegisterUser extends React.Component {
   constructor(props) {
     super(props);
