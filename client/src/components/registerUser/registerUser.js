@@ -1,8 +1,6 @@
 import React from "react";
 // import { TextInput } from "react-materialize";
-// AXIOS
-import axios from "axios";
-//import API from "../../routes/api/api";
+
 class RegisterUser extends React.Component {
   constructor(props) {
     super(props);
@@ -121,7 +119,7 @@ class RegisterUser extends React.Component {
             value={this.state.passWord}
             onChange={this.onHandlePassWord}
           />
-          <button type="submit" action="/registerUser" method="post" color="primary">
+          <button type="submit" action="http://localhost:5000/registerUser" method="post" color="primary">
             Submit
           </button>
         </form>

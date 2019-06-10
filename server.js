@@ -8,9 +8,9 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 require("./config/passport");
 require("dotenv").config();
-const config = require("./routes/api/DB");
+const config = require("./config/DB");
 const expenseRoute = require("./routes/api/expenseAPI");
-const db = process.env.MONGODB_URI || "mongodb://localhost:27017/expenses";
+const db = process.env.MONGODB_URI || "mongodb://localhost:27017/affluent";
 mongoose.Promise = global.Promise;
 mongoose.connect(db, { useNewUrlParser: true }).then(
   () => {
@@ -25,6 +25,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(passport.initialize());
+
 // routes
 app.use("/api", expenseRoute);
 require('./routes/loginUser')(app);
