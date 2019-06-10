@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
-import passport from 'passport';
-import User from '../models/user';
+const passport = require('passport');
+const User = require('../models/user');
 
 module.exports = (app) => {
   app.put('/updateUser', (req, res, next) => {
-    passport.authenticate('jwt', { session: false }, (err, user, info) => {
+    passport.authenticate('jwt', { session: false }, (err, User, info) => {
       if (err) {
         console.error(err);
       }
